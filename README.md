@@ -1,54 +1,36 @@
-# Astro Starter Kit: Basics
+# Movies TMDB🎬
 
-```sh
-npm create astro@latest -- --template basics
-```
+Este es un proyecto de estudio llamado **My Movies**, creado con el objetivo de practicar el uso de **APIs** en combinación con tecnologías como **Astro** y **Tailwind CSS**. En esta aplicación, puedes explorar detalles de diferentes películas, obteniendo la información a través de una API de películas.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## 📝 Descripción del Proyecto
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+**My Movies** es una aplicación de búsqueda de películas que permite al usuario:
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+- Buscar información detallada sobre una película.
+- Visualizar una lista de películas populares o recientemente lanzadas.
+- Filtrar resultados según géneros o categorías.
 
-## 🚀 Project Structure
+Este proyecto sirve para profundizar en el consumo de APIs desde el frontend, estilizado con Tailwind CSS, y organizado en un entorno de componentes de Astro.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🚀 Tecnologías Utilizadas
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+- **Astro**: Framework de construcción de sitios estáticos, utilizado para organizar el proyecto en componentes y optimizar la carga.
+- **React**: librería para trabajar con los objetos más dinámicos dentro de la página web.
+- **API de Películas**: API externa utilizada para obtener datos en tiempo real sobre películas (detalles, géneros, imágenes, etc.).
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 📁 Estructura del Proyecto
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- src/components: Componentes reutilizables de la aplicación.
+- src/pages: Páginas de la aplicación, gestionadas por Astro.
+- src/styles: Estilos personalizados con Tailwind.
+- public: Archivos públicos, como imágenes y otros recursos.
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🌐 Funcionalidades
 
-## 🧞 Commands
+- Búsqueda de películas: Usa el cuadro de búsqueda para encontrar información sobre una película específica.
+- Listas de películas: Muestra una lista de películas populares o destacadas.
+- Detalles de películas: Haz clic en una película para ver su sinopsis, calificación, género y otros detalles.
 
-All commands are run from the root of the project, from a terminal:
+## 🤝 Contribución
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Si deseas contribuir a este proyecto, ¡eres bienvenido! Haz un fork del repositorio, crea una rama con tus cambios y envía un Pull Request
