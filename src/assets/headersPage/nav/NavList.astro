@@ -1,0 +1,51 @@
+---
+import Li from "./components/LiteralsNav.astro";
+import GenderList from "./components/GenderList.astro";
+
+// icons
+import Home from "./icons/Home.astro";
+import Movies from "./icons/Movies.astro";
+import Series from "./icons/Series.astro";
+---
+
+<section>
+  <ul class="ul-principal">
+    <Li word="inicio" href="/">
+      <Home slot="icon" />
+    </Li>
+    <GenderList />
+    <Li word="películas" href="#">
+      <Movies slot="icon" />
+    </Li>
+    <Li word="series" href="#">
+      <Series slot="icon" />
+    </Li>
+  </ul>
+</section>
+
+<style>
+  section {
+    ul.ul-principal {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      list-style: none;
+      padding: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const $buttonGenres = document.querySelector(
+    "#button_genres"
+  ) as HTMLButtonElement;
+
+  $buttonGenres.addEventListener("click", (e) => {
+    e.preventDefault();
+    const $subListContainer = document.querySelector(
+      ".sublist-container"
+    ) as HTMLDivElement;
+    $subListContainer.classList.toggle("active");
+  });
+</script>

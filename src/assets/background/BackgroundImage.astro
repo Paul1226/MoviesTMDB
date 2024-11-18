@@ -1,0 +1,57 @@
+---
+interface Props {
+  src: string;
+}
+const { src } = Astro.props;
+---
+
+<div class="container-figure">
+  <figure>
+    <img src={src} alt="Imagen Backgrund de la página" />
+    <div class="box-gradient"></div>
+  </figure>
+</div>
+
+<style>
+  .container-figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+    aspect-ratio: 16/9;
+
+    figure {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      img {
+        display: block;
+        opacity: 0.5;
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+
+      .box-gradient {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--color_bg);
+        background: linear-gradient(
+          0deg,
+          #000e16 10%,
+          #ffffff10 50%,
+          #ffffff10 60%,
+          #000e16 95%
+        );
+      }
+    }
+  }
+</style>

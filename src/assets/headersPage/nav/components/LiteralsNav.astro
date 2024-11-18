@@ -1,0 +1,53 @@
+---
+interface Props {
+  word: string;
+  href?: string;
+  iconArrow?: boolean;
+}
+const { word, href, iconArrow = false } = Astro.props;
+
+function handleClick() {
+  console.log("dentro");
+}
+
+// import
+import "./LiteralNav.css";
+import "./LiteralGenre.css";
+---
+
+<li class="li-principal">
+  {
+    iconArrow ? (
+      <div class="sublist">
+        <button id="button_genres">
+          <figure>
+            <slot name="icon" />
+          </figure>
+          {word}
+          <figure class="figure-arrow">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              style="width: 100%;"
+              fill="currentColor"
+            >
+              <path d="M18.71 8.21a1 1 0 0 0-1.42 0l-4.58 4.58a1 1 0 0 1-1.42 0L6.71 8.21a1 1 0 0 0-1.42 0 1 1 0 0 0 0 1.41l4.59 4.59a3 3 0 0 0 4.24 0l4.59-4.59a1 1 0 0 0 0-1.41Z" />
+            </svg>
+          </figure>
+          <div class="box-left" />
+        </button>
+        <slot name="subList" />
+      </div>
+    ) : (
+      <div class="name-literal">
+        <a href={href}>
+          <figure>
+            <slot name="icon" />
+          </figure>
+          {word}
+          <div class="box-left" />
+        </a>
+      </div>
+    )
+  }
+</li>
