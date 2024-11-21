@@ -4,7 +4,7 @@
 import "@fontsource-variable/work-sans";
 
 // components
-import BackgroundImage from "../assets/background/BackgroundImage.astro";
+import BackgroundImage from "../components/ui/BackgroundImage.astro";
 
 interface Props {
   title: string;
@@ -38,9 +38,13 @@ const { title, src = "/images/bg-tmdb.webp" } = Astro.props;
     --color_paragraph: #9ca3af;
     --color_line: #9ca3af60;
     --color_bg: #000e16;
-    --color_bg_nav: #03b4ba90;
+    --color_bg_nav: #003546f1;
     --color_bg_card: #03b4ba20;
     --gradient_tmdb: linear-gradient(to right, #8acda4, #41bfc6);
+
+    --breackpoint-tablet: 768px;
+
+    --topp: -50%;
   }
 
   * {
@@ -48,7 +52,6 @@ const { title, src = "/images/bg-tmdb.webp" } = Astro.props;
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    color: var(--color_letters);
     background-color: transparent;
     font-family: var(--font_workSans);
   }

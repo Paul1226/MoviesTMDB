@@ -1,0 +1,57 @@
+---
+import Li from "./OptionNav.astro";
+import Home from "../../assets/icons/Home.astro";
+import Gender from "../../assets/icons/Gender.astro";
+import Movies from "../../assets/icons/Movies.astro";
+import Series from "../../assets/icons/Series.astro";
+---
+
+<nav class="nav-container">
+  <ul class="ul-list">
+    <Li content="inicio">
+      <Home slot={"icon-literal"} class:list={"icon-literal"} />
+    </Li>
+    <Li content="géneros" option="btn">
+      <Gender slot={"icon-literal"} class:list={"icon-literal"} /></Li
+    >
+    <Li content="películas">
+      <Movies slot={"icon-literal"} class:list={"icon-literal"} />
+    </Li>
+    <Li content="series">
+      <Series slot={"icon-literal"} class:list={"icon-literal"} />
+    </Li>
+  </ul>
+
+  <style>
+    .nav-container {
+      padding: 1rem;
+      padding-block: 2rem;
+      width: 80%;
+      margin: 0 auto;
+    }
+    .ul-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      list-style: none;
+    }
+
+    .icon-literal {
+      width: 100%;
+      fill: var(--color_letters);
+    }
+    @media (min-width: 768px) {
+      .nav-container {
+        padding: 0;
+        margin: 0;
+        width: max-content;
+      }
+      .ul-list {
+        flex-direction: row;
+        align-items: center;
+        width: max-content;
+        gap: 0.4rem;
+      }
+    }
+  </style>
+</nav>

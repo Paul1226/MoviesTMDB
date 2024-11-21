@@ -1,7 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../assets/headersPage/Header.astro";
-import SectionPopulars from "../assets/sectionContainer/populars/SectionPopulars.astro";
+import Header from "../components/header/Header.astro";
+import Footer from "../components/footer/Footer.astro";
+import SectionPopulars from "../components/specific/SectionPopulars.astro";
+import SectionTrending from "../components/specific/SectionTrending.astro";
 ---
 
 <Layout title="TMDB - Lo mejor de las peliculas aquí">
@@ -9,7 +11,10 @@ import SectionPopulars from "../assets/sectionContainer/populars/SectionPopulars
     <Header />
     <main class="main-container">
       <SectionPopulars />
+      <SectionTrending />
+      <!-- <SectionUpComing /> -->
     </main>
+    <Footer />
   </div>
 </Layout>
 
@@ -24,6 +29,6 @@ import SectionPopulars from "../assets/sectionContainer/populars/SectionPopulars
     display: flex;
     flex-direction: column;
     width: 100%;
-    column-gap: 1rem;
+    gap: 1.5rem;
   }
 </style>

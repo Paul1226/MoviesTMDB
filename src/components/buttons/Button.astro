@@ -1,0 +1,94 @@
+---
+interface Props {
+  variant?: "header-btn" | "footer-btn";
+  content: string;
+}
+
+const { variant = "footer-btn", content } = Astro.props;
+---
+
+<div class="btn" id={variant}>
+  {
+    variant === "header-btn" ? (
+      <a class="element" href="#">
+        <figure class="figure-element">
+          <svg
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+          >
+            <path d="M12 24a4 4 0 0 1-4-4v-4H4a4 4 0 0 1 0-8h4V4a4 4 0 0 1 8 0v4h4a4 4 0 0 1 0 8h-4v4a4 4 0 0 1-4 4z" />
+          </svg>
+        </figure>
+        <span>{content}</span>
+      </a>
+    ) : (
+      <div class="button-more">
+        <a class="a-btn-more" href="#">
+          {content}
+        </a>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .btn {
+    text-transform: capitalize;
+  }
+
+  /* header-btn */
+  #header-btn .element {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color_letters);
+    transition: color 300ms;
+
+    &:hover {
+      color: var(--color_primary);
+
+      svg {
+        fill: var(--color_primary);
+      }
+    }
+  }
+
+  #header-btn .figure-element {
+    width: 1rem;
+    display: grid;
+    place-content: center;
+
+    svg {
+      transition: fill 300ms;
+      width: 100%;
+    }
+  }
+
+  /* footer-btn */
+  .button-more {
+    display: flex;
+    justify-content: center;
+    padding-block: 1.3rem;
+  }
+  .a-btn-more {
+    width: max-content;
+    background-color: gray;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-transform: capitalize;
+    box-shadow: 0 8px 10px #00000010;
+    color: var(--color_letters);
+    transition:
+      background-color 300ms,
+      transform 300ms,
+      box-shadow 300ms;
+
+    &:hover {
+      background-color: var(--color_primary);
+      transform: translateY(-0.25rem);
+      box-shadow: 0 8px 10px #000;
+    }
+  }
+</style>

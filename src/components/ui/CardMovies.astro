@@ -1,0 +1,99 @@
+---
+// imports
+import { linksApi } from "../../lib/data/DataLinks";
+
+interface Props {
+  poster: string;
+  titleCard: string;
+}
+
+const { poster, titleCard } = Astro.props;
+
+const srcImage = `${linksApi.images}${poster}`;
+---
+
+<article class="card-container">
+  <a href="#" class="a-card-movie">
+    <figure class="figure-card">
+      <img src={srcImage} alt=`Cartel de ${titleCard}` />
+    </figure>
+    <h3 class="title-card">{titleCard}</h3>
+    <figure class="figure-play">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        style="width: 100%; height: 100%;"
+        ><path
+          d="M20.492 7.969 10.954.975A5 5 0 0 0 3 5.005V19a4.994 4.994 0 0 0 7.954 4.03l9.538-6.994a5 5 0 0 0 0-8.062Z"
+        ></path></svg
+      >
+    </figure>
+  </a>
+</article>
+
+<style>
+  .card-container {
+    background-color: var(--color_bg_card);
+    width: 100%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+  .a-card-movie {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+    color: var(--color_letters);
+  }
+  .figure-card {
+    aspect-ratio: 1/1.45;
+    width: 100%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 300ms;
+    }
+  }
+
+  .title-card {
+    font-weight: 400;
+    font-size: smaller;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.5rem;
+    padding-top: 0;
+  }
+
+  .figure-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    scale: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    box-sizing: content-box;
+    padding: 1rem;
+    border-radius: 99999px;
+    border: 2px solid;
+    transition: scale 300ms;
+  }
+
+  .a-card-movie:hover {
+    .figure-card {
+      img {
+        transform: scale(1.1);
+        filter: brightness(0.3);
+      }
+    }
+
+    .figure-play {
+      scale: 1;
+    }
+  }
+</style>

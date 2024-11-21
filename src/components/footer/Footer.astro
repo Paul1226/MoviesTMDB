@@ -1,0 +1,64 @@
+---
+import LogoFooter from "../ui/LogoFooter.astro";
+---
+
+<footer>
+  <LogoFooter />
+  <button class="button-home">
+    <svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+      ><path
+        d="M23.12 9.91 19.25 6a1 1 0 0 0-1.42 0 1 1 0 0 0 0 1.41L21.39 11H1a1 1 0 0 0-1 1 1 1 0 0 0 1 1h20.45l-3.62 3.61a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l3.87-3.88a3 3 0 0 0 0-4.24Z"
+      ></path></svg
+    >
+  </button>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-block: 1rem;
+    border-top: 1px solid var(--color_line);
+
+    .button-home {
+      background-color: var(--color_line);
+      border-radius: 99999px;
+      cursor: pointer;
+      padding: 0.8rem;
+      width: 3rem;
+      height: 3rem;
+      transition: background-color 300ms;
+      animation: float-button 800ms infinite alternate-reverse;
+      box-shadow: 0 10px 10px #00000050;
+
+      svg {
+        box-sizing: border-box;
+        width: 100%;
+        rotate: -90deg;
+      }
+
+      &:hover {
+        background-color: var(--color_primary);
+      }
+    }
+  }
+
+  @keyframes float-button {
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+</style>
+
+<script>
+  const $buttonFooter = document.querySelector(
+    ".button-home"
+  ) as HTMLButtonElement;
+
+  $buttonFooter.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+  });
+</script>

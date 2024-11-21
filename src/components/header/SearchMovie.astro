@@ -1,0 +1,78 @@
+---
+import Search from "../../assets/icons/Search.astro";
+---
+
+<div class="container-form">
+  <form action="" class="form-search">
+    <label for="search" class="label-search">
+      <input
+        type="text"
+        placeholder="Search..."
+        id="search"
+        class="input-search"
+      />
+    </label>
+    <button class="btn-search">
+      <Search class:list={"icon-search"} />
+    </button>
+  </form>
+</div>
+
+<style>
+  .container-form {
+    width: 100%;
+    padding-top: 6rem;
+  }
+  .form-search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    border: 2px solid var(--color_line);
+    border-left: 0;
+    border-right: 0;
+  }
+
+  .label-search {
+    width: 100%;
+  }
+  .input-search {
+    width: 100%;
+    outline: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 999999px;
+    border: 2px solid var(--color_line);
+    color: var(--color_letters);
+    background-color: #ffffff20;
+
+    &::placeholder {
+      color: var(--color_paragraph);
+    }
+  }
+  .btn-search {
+    width: 1.5rem;
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+  }
+  .icon-search {
+    fill: var(--color_letters);
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .container-form {
+      padding: 0;
+      width: max-content;
+    }
+    .form-search {
+      border: 0;
+      padding: 0;
+    }
+
+    .label-search {
+      max-width: max-content;
+    }
+  }
+</style>

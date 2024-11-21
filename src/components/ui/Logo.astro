@@ -1,0 +1,38 @@
+<div class="logo">
+  <a href="/" class="a-logo">
+    Movies<span class="span-of">of</span><span class="span-tmdb">tmdb</span>
+  </a>
+</div>
+
+<style>
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 50;
+    width: min-content;
+  }
+  .a-logo {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color_letters);
+    transition: transform 300ms;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  .span-of {
+    text-transform: lowercase;
+    font-size: 0.8rem;
+  }
+
+  .span-tmdb {
+    background-image: var(--gradient_tmdb);
+    color: transparent;
+    background-clip: text;
+    font-size: 1.2rem;
+  }
+</style>

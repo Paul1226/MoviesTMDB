@@ -1,0 +1,30 @@
+---
+interface Props {
+  titleSec: string;
+}
+
+const { titleSec } = Astro.props;
+
+// import
+import Button from "../buttons/Button.astro";
+---
+
+<header class="header-section">
+  <h2 class="title-section">{titleSec}</h2>
+  <Button variant="header-btn" content="ver más" />
+</header>
+
+<style>
+  .header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .title-section {
+    text-transform: capitalize;
+    font-weight: 500;
+    color: var(--color_letters);
+  }
+</style>

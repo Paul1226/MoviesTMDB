@@ -1,0 +1,34 @@
+<div class="logo-footer">
+  <a href="/">
+    Movies<span class="span-of">of</span><span class="span-tmdb">tmdb</span>
+  </a>
+</div>
+
+<style>
+  .logo-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 50;
+
+    a {
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--color_line);
+      pointer-events: none;
+
+      .span-of {
+        text-transform: lowercase;
+        font-size: 0.8rem;
+        color: var(--color_line);
+      }
+
+      .span-tmdb {
+        font-size: 1.2rem;
+        color: var(--color_line);
+      }
+    }
+  }
+</style>

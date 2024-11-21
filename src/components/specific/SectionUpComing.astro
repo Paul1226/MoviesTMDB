@@ -1,0 +1,7 @@
+---
+import SectionContainer from "../ui/SectionContainer.astro";
+import { FetchingUpComing } from "../api/FetchUpComing";
+const movies = await FetchingUpComing();
+---
+
+<SectionContainer titleSec="próximos estrenos" list={movies} />

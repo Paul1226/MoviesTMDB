@@ -1,0 +1,7 @@
+---
+import SectionContainer from "../ui/SectionContainer.astro";
+import { FetchingPopulars } from "../api/FetchPopulars";
+const movies = await FetchingPopulars();
+---
+
+<SectionContainer titleSec="películas populares" list={movies} />

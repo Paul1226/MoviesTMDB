@@ -1,0 +1,77 @@
+---
+import Logo from "../ui/Logo.astro";
+import { MenusInteraction } from "./OptionMenus";
+import SearchMovie from "./SearchMovie.astro";
+import Nav from "./Nav.astro";
+---
+
+<header class="header-page">
+  <section class="content-logo-menus">
+    <Logo />
+    <MenusInteraction client:load />
+  </section>
+  <section class="content-search-navlist" id="nav">
+    <SearchMovie />
+    <Nav />
+  </section>
+</header>
+
+<style>
+  .header-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2rem;
+    /* position: relative; */
+  }
+
+  .content-logo-menus {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .content-search-navlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color_bg_nav);
+    position: absolute;
+    z-index: 40;
+    top: var(--topp);
+    left: 0;
+    width: 100%;
+    border-radius: 0 0 2rem 2rem;
+    box-shadow: 0 10px 10px #00000080;
+    transition: top 500ms;
+  }
+  .content-search-navlist.active {
+    top: 0;
+  }
+  @media (min-width: 768px) {
+    .header-page {
+      /* flex-direction: row; */
+      gap: 1rem;
+    }
+    .content-logo-menus {
+      justify-content: center;
+    }
+    .content-search-navlist {
+      flex-direction: row-reverse;
+      justify-content: space-around;
+      position: relative;
+      background-color: transparent;
+      gap: 1rem;
+      box-shadow: none;
+    }
+  }
+
+  @media (min-width: 1080px) {
+    .header-page {
+      flex-direction: row;
+      padding: 2rem 1rem;
+    }
+  }
+</style>

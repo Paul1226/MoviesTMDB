@@ -1,0 +1,8 @@
+---
+import SectionContainer from "../ui/SectionContainer.astro";
+import { FetchingTrending } from "../api/FetchTrending";
+
+const movies = await FetchingTrending();
+---
+
+<SectionContainer titleSec="tendencia del día" list={movies} />
