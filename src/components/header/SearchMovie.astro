@@ -10,9 +10,10 @@ import Search from "../../assets/icons/Search.astro";
         placeholder="Search..."
         id="search"
         class="input-search"
+        autocomplete="off"
       />
     </label>
-    <button class="btn-search">
+    <button class="btn-search" type="submit">
       <Search class:list={"icon-search"} />
     </button>
   </form>

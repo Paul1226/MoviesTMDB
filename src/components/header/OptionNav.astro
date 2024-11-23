@@ -2,14 +2,15 @@
 interface Props {
   option?: "anchor" | "btn";
   content: string;
+  href?: string;
 }
-const { option = "anchor", content } = Astro.props;
+const { option = "anchor", content, href } = Astro.props;
 ---
 
 <li class="literal">
   {
     option === "anchor" ? (
-      <a class="a-literal" href="#">
+      <a class="a-literal" href={href}>
         <figure class="figure-icon">
           <slot name="icon-literal" />
         </figure>

@@ -11,12 +11,12 @@ import HeaderSection from "./HeaderSection.astro";
 import Button from "../buttons/Button.astro";
 import CardMovies from "./CardMovies.astro";
 import { type Result } from "../../lib/data/DataTypes";
+import "../ui/styles/SectionContainer.css";
 ---
 
-<section>
+<section class="section-plantilla">
   <HeaderSection titleSec={titleSec} />
   <div class="container-cards">
-    <slot />
     {
       list?.map((movie) => (
         <CardMovies titleCard={movie.title} poster={movie.poster_path} />
@@ -25,17 +25,3 @@ import { type Result } from "../../lib/data/DataTypes";
   </div>
   <Button content="cargar más" />
 </section>
-
-<style>
-  section {
-    padding-inline: 1rem;
-
-    .container-cards {
-      padding-top: 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      gap: 0.8rem;
-      /* grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); */
-    }
-  }
-</style>

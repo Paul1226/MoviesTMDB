@@ -1,0 +1,89 @@
+<section class="section-plantilla"></section>
+<script>
+  import { linksApi } from "../../lib/data/DataLinks";
+  import { type General, type Result } from "../../lib/data/DataTypes";
+  import "../ui/styles/SectionContainer.css";
+  import "../ui/styles/CardMovies.css";
+
+  const $form = document.querySelector(".form-search") as HTMLFormElement;
+  $form.addEventListener("submit", (eve) => {
+    eve.preventDefault();
+    const $section = document.querySelector(
+      ".section-plantilla"
+    ) as HTMLElement;
+    const form = eve.target as HTMLFormElement;
+    const value = (form.elements.namedItem("search") as HTMLInputElement).value;
+    const listMovies = getListMovies(value).then((result) =>
+      result.slice(0, 12)
+    );
+    renderSearch($section, value, listMovies);
+    // console.log(value);
+  });
+
+  async function fetch_API(wordSearch: string) {
+    const url = `${linksApi.base}/search/movie${linksApi.key}&query=${wordSearch}`;
+    let listSearch = [] as Result[];
+    try {
+      const response = await fetch(url);
+      const data = (await response.json()) as General;
+      listSearch = data.results;
+      return listSearch || [];
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
+  }
+
+  async function getListMovies(value: string) {
+    const listMovies = await fetch_API(value);
+    return listMovies;
+  }
+
+  function renderSearch(
+    content: HTMLElement,
+    title: string,
+    list: Promise<Result[]>
+  ) {
+    content.innerHTML = "";
+    const titleSeciton = document.createElement("h2") as HTMLElement;
+    const divContainer = document.createElement("div") as HTMLElement;
+
+    titleSeciton.textContent = title;
+    titleSeciton.classList.add("title-section");
+    content.appendChild(titleSeciton);
+
+    divContainer.classList.add("container-cards");
+    list.then((movies) =>
+      movies.map((mv) => {
+        createCard(mv.title, mv.poster_path, divContainer);
+      })
+    );
+    content.appendChild(divContainer);
+  }
+
+  function createCard(title: string, poster: string, content: HTMLElement) {
+    const card = document.createElement("article");
+    const src_Image = `${linksApi.images}${poster}`;
+    card.classList.add("card-container");
+    card.innerHTML = `
+        <a href="#" class="a-card-movie">
+            <figure class="figure-card">
+            <img src="${src_Image}" alt="Cartel de ${title}" />
+            </figure>
+            <h3 class="title-card">${title}</h3>
+            <figure class="figure-play">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                style="width: 100%; height: 100%;"
+                ><path
+                d="M20.492 7.969 10.954.975A5 5 0 0 0 3 5.005V19a4.994 4.994 0 0 0 7.954 4.03l9.538-6.994a5 5 0 0 0 0-8.062Z"
+                ></path></svg
+            >
+            </figure>
+        </a>
+    `;
+    content.appendChild(card);
+  }
+</script>

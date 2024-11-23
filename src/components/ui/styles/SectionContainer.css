@@ -1,0 +1,23 @@
+.section-plantilla {
+  padding-inline: 1rem;
+}
+.container-cards {
+  padding-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.8rem;
+  /* grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); */
+}
+
+/* titulo de la seccion del buscador */
+.title-section {
+  text-transform: capitalize;
+  font-weight: 500;
+  color: var(--color_letters);
+}
+
+@media (min-width: 768px) {
+  .container-cards {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

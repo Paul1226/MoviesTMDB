@@ -4,15 +4,18 @@ import Header from "../components/header/Header.astro";
 import Footer from "../components/footer/Footer.astro";
 import SectionPopulars from "../components/specific/SectionPopulars.astro";
 import SectionTrending from "../components/specific/SectionTrending.astro";
+import SectionUpComing from "../components/specific/SectionUpComing.astro";
+import FoundMovie from "../components/header/FoundMovie.astro";
 ---
 
 <Layout title="TMDB - Lo mejor de las peliculas aquí">
   <div class="max-content">
     <Header />
     <main class="main-container">
+      <FoundMovie />
       <SectionPopulars />
       <SectionTrending />
-      <!-- <SectionUpComing /> -->
+      <SectionUpComing />
     </main>
     <Footer />
   </div>
@@ -25,7 +28,7 @@ import SectionTrending from "../components/specific/SectionTrending.astro";
     margin: 0 auto;
   }
   .main-container {
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
     display: flex;
     flex-direction: column;
     width: 100%;
